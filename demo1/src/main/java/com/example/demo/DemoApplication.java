@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 public class DemoApplication {
-//是啥
-
     /**
      * 
      * @param args
