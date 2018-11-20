@@ -19,11 +19,6 @@ public class MyStaticTask {
     }
 
     @Scheduled(cron = "* 0/1 * * * ?")
-    public void doTaskTest(){
-        System.out.println("执行了doTaskTest,时间为:"+new Date(System.currentTimeMillis()));
-    }
-
-    @Scheduled(cron = "* 0/1 * * * ?")
     public void doInsertTask(){
         User user = new User();
         user.setuAge(22);
