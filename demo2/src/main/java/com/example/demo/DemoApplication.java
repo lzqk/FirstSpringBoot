@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 //@ComponentScan(basePackages = {"com.example.demo.mapper"})
-//这里开启定时任务
+//@EnableScheduling这里开启定时任务
 @EnableScheduling
 public class DemoApplication {
 	private final static Logger logger = LoggerFactory.getLogger(DemoApplication.class);
