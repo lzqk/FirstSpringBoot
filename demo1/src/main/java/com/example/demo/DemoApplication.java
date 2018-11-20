@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.example.demo.mapper")
 public class DemoApplication {
     /**
-     * 
+     * spring boot 入口类
      * @param args
      *
      */
