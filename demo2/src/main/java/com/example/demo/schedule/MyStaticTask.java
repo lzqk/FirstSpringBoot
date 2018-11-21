@@ -25,6 +25,7 @@ public class MyStaticTask {
         user.setuName("lk");
         user.setuDesc("ss");
         userService.insert(user);
+
         System.out.println("doInsertTask,时间为:"+new Date(System.currentTimeMillis()));
     }
 
