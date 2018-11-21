@@ -21,7 +21,7 @@ public class MyStaticTask {
     @Scheduled(cron = "* 0/1 * * * ?")
     public void doInsertTask(){
         User user = new User();
-        user.setuAge(24);
+        user.setuAge(25);
         user.setuName("lk");
         user.setuDesc("ss");
         userService.insert(user);
