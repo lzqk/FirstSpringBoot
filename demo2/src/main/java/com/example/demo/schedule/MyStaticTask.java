@@ -16,7 +16,6 @@ public class MyStaticTask {
     @Scheduled(cron = "0/10 * * * * ?")
     public void doTask(){
         System.out.println("执行了MyStaticTask,时间为:"+new Date(System.currentTimeMillis()));
-        
     }
 
     @Scheduled(cron = "* 0/1 * * * ?")
@@ -26,7 +25,6 @@ public class MyStaticTask {
         user.setuName("lk");
         user.setuDesc("ss");
         userService.insert(user);
-
         System.out.println("doInsertTask,时间为:"+new Date(System.currentTimeMillis()));
     }
 
