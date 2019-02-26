@@ -2,8 +2,9 @@ package com.example.demo.bean;
 
 public class User {
 
-    private long u_id;
 
+    private long u_id;
+//二
     private String u_name;
 
     private int u_age;
