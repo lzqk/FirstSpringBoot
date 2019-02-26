@@ -15,18 +15,22 @@ import java.util.List;
  */
 //@Mapper
 public interface UserMapper {
-    @Select("select u_id, u_name, u_age, u_desc from t_user where u_id = #{id}")
+    @Select("select id, `name`, age, `desc`, isdelete from user where id = #{id}")
     public User selectUserById(@Param("id") Long id);
 
-    @Insert("insert into t_user(u_name, u_age, u_desc) VALUES(#{u_name}, #{u_age}, #{u_desc})")
+    @Insert("insert into user(`name`, age, `desc`, isdelete) VALUES(#{name}, #{age}, #{desc}, #{isdelete})")
     public int insert(User user);
 
-    @Update("update t_user set u_name =#{u_name}, u_age =#{u_age}, u_desc =#{u_desc} where u_id = #{u_id}")
+    @Update("update user set `name` =#{name}, age =#{age}, `desc` =#{desc}, isdelete =#{isdelete} where id = #{id}")
     public int update(User user);
 
-    @Delete("delete from t_user where u_id = #{id}")
+    @Delete("delete from user where id = #{id}")
     public int delete(@Param("id") Long id);
 
-    @Select("select u_id, u_name, u_age, u_desc from t_user")
+    //注解删除多条数据用$ 并且用括号括起来，传的参数可以是字符串，""
+    @Delete("delete from user where id in (${ids})")
+    public int deletebyIds(@Param("ids") String ids);
+
+    @Select("select id, `name`, age, `desc`, isdelete from user")
     public List<User> selectAllUser();
 }

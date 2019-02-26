@@ -2,43 +2,55 @@ package com.example.demo.bean;
 
 public class User {
 
-    private long u_id;
+    private Long id;
 
-    private String u_name;
+    private String name;
 
-    private int u_age;
+    private Integer age;
 
-    private String u_desc;
+    private String desc;
 
-    public void setU_id(long u_id) {
-        this.u_id = u_id;
+    private String isdelete;
+
+    public Long getId() {
+        return id;
     }
 
-    public long getU_id() {
-        return u_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setU_name(String u_name) {
-		this.u_name = u_name == null ? null : u_name.trim();
+    public String getName() {
+        return name;
     }
 
-    public String getU_name() {
-        return u_name;
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public void setU_age(int u_age) {
-        this.u_age = u_age;
+    public Integer getAge() {
+        return age;
     }
 
-    public int getU_age() {
-        return u_age;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public void setU_desc(String u_desc) {
-		this.u_desc = u_desc == null ? null : u_desc.trim();
+    public String getDesc() {
+        return desc;
     }
 
-    public String getU_desc() {
-        return u_desc;
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
+
+    public String getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(String isdelete) {
+        this.isdelete = isdelete == null ? null : isdelete.trim();
+    }
+
+
 }

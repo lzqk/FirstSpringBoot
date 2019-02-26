@@ -23,12 +23,12 @@ public class UserTestController {
 
     @RequestMapping(value = "/getUserNoSQL",method = RequestMethod.GET)
     @ApiOperation(value = "获取User信息")
-    public String getUser(){
+    public User getUser(){
         User user = new User();
-        user.setU_age(22);
-        user.setU_name("lk");
+        user.setAge(22);
+        user.setName("lk");
         System.out.println("test1-->2");
-        return user.toString();
+        return user;
     }
 
     //查询一条
@@ -92,6 +92,22 @@ public class UserTestController {
         }else{
             returnBean.setReturnCode("0");
             returnBean.setReturnMessage("删除失败");
+        }
+        return returnBean;
+    }
+
+    //删除多条
+    @RequestMapping(value ="deleteUsers",method = RequestMethod.DELETE)
+    @ApiOperation(value = "删除多条数据")
+    public ReturnBean deleteUsers(@RequestParam("ids") String ids){
+        ReturnBean returnBean = new ReturnBean();
+        int count = userService.deletebyIds(ids);
+        if(count > 0){
+            returnBean.setReturnCode("1");
+            returnBean.setReturnMessage("删除多条数据成功");
+        }else{
+            returnBean.setReturnCode("0");
+            returnBean.setReturnMessage("删除多条数据失败");
         }
         return returnBean;
     }
