@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.mapper.UserMapper;
 import com.example.demo.bean.User;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

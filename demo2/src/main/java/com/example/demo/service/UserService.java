@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
-import com.github.pagehelper.PageInfo;
 import com.example.demo.bean.User;
+import com.github.pagehelper.PageInfo;
+
 public interface UserService {
 
     public User selectByPrimaryKey(Long id);
