@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.bean.User;
+import com.example.demo.bean.UserExample;
 import com.github.pagehelper.PageInfo;
 
 public interface UserService {
@@ -13,5 +14,5 @@ public interface UserService {
 
     public int updateByPrimaryKey(User record);
 
-    public PageInfo<User> findAllUser(int pageNum, int pageSize);
+    public PageInfo<User> findAllUser(int pageNum, int pageSize, UserExample userExample);
 }
