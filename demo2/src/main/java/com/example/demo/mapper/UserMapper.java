@@ -3,6 +3,7 @@ package com.example.demo.mapper;
 import com.example.demo.bean.User;
 import com.example.demo.bean.UserExample;
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -93,4 +94,7 @@ public interface UserMapper {
      * @mbggenerated Tue Feb 26 14:58:44 CST 2019
      */
     int updateByPrimaryKey(User record);
+
+    //入参为Map的写法用例
+    List<User> queryByMap(Map map);
 }
