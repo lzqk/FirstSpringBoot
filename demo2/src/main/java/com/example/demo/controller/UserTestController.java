@@ -13,6 +13,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping(value = "/user")
 @Api("测试User")
@@ -103,5 +107,17 @@ public class UserTestController {
         }
         return returnBean;
     }
+
+    @RequestMapping(value = "/testSearchMap",method = RequestMethod.GET)
+    @ApiOperation(value = "实验Mybatis的paramterMap的用法")
+    public User testSearchMap(){
+        logger.info("testSearchMap");
+        Map map = new HashMap();
+        map.put("name","张三");
+        List<User> user = userService.queryByMap(map);
+        logger.info(user.get(0).toString());
+        return user.get(0);
+    }
+
 
 }
