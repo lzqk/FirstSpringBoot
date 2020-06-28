@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 @EnableAsync
-//入口类1
+//入口类
 //test 2
 public class DemoApplication {
     /**
