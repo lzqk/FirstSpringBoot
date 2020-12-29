@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @Author: LK
@@ -60,16 +62,49 @@ public class Test {
     }*/
 
 
-    public static void main(String[] args) {
-        int a = 0;
+    /*public static void main(String[] args) {
+        //int a = 0;
         for(int i=0;i<10;i++){
-            a++;
-            System.out.println(a);
-            System.err.println(++a);
+            System.out.println("i:"+i);
+
+            if(i==2){
+                continue;
+            }
+            System.out.println("j:"+i);
+        }
+        *//*int i=0;
+        while (true){
+            i++;
+            int start = (i-1) * 5000 +1;
+            int end = i*5000;
+            System.out.println("start:"+start+" end:"+end);
+            System.out.println(i);
+            if(i == 3){
+                break;
+            }
+        }*//*
+
+        //String ss = "202009";
+        //System.out.println(ss.substring(0,ss.length() - 2));
+    }*/
+
+    /*public static void main(String[] args) {
+        String ss = ".222";
+        if(ss.startsWith(".")){
+            System.out.println("0"+ss);
+        }
+        //System.out.println(ss);
+
+    }*/
+    public static void main(String[] args) {
+        Map<String,String> m = new HashMap<>();
+        m.put("aa","sss");
+        if(m.get("aa").length() >0){
+            System.out.println("true");
+        }
+        if(m.get("bb").length() >0){
+            System.out.println("ff");
         }
     }
-
-
-
 
 }

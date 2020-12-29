@@ -2,8 +2,10 @@ package com.example.demo;
 
 import org.apache.commons.math3.fitting.GaussianCurveFitter;
 import org.apache.commons.math3.fitting.WeightedObservedPoints;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class Test {
@@ -176,9 +178,76 @@ public class Test {
     }*/
 
     public static void main(String[] args) {
-        BigDecimal b = new BigDecimal("10");
+        /*BigDecimal b = new BigDecimal("10");
         BigDecimal i = new BigDecimal("3");
         BigDecimal t = b.divide(i,2,BigDecimal.ROUND_HALF_UP);
-        System.out.println(t);
+        System.out.println(t);*/
+        //BigDecimal d1 = new BigDecimal("11.33333333333339");//14
+        /*BigDecimal d1 = new BigDecimal("11.333333");//14
+        BigDecimal b = d1.setScale(14,RoundingMode.HALF_UP);
+        double d = b.doubleValue();
+        String s = String.valueOf(d);
+        System.out.println(d);
+        System.err.println(s);*/
+        //double d = Double.valueOf("11.33333333333333333333");
+        //System.out.println(d);
+        /*BigDecimal b = new BigDecimal("100");
+        BigDecimal b1 = new BigDecimal("10");
+        if(b.compareTo(b1) <0){
+            //b<b1
+            System.out.println("1");
+        } else {
+            System.out.println("0");
+        }*/
+        /*Object d = 3/177;
+        String bg = new BigDecimal(String.valueOf(d)).setScale(4, RoundingMode.HALF_UP).toPlainString();
+        System.out.println(bg);*/
+
+        //String ss = "abcabcd";
+        //System.out.println(ss.indexOf("d")+1);
+        //System.err.println(ss.indexOf("b",2)+1);
+
+        BigDecimal b = new BigDecimal("0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+        String ss = b.toPlainString();
+        System.out.println(b);
+        System.out.println(ss);
+
+        String bg = new BigDecimal("2486.85640441273").setScale(2, RoundingMode.HALF_UP).toPlainString();
+        System.out.println(bg);
+
+
+        String s = "0~a`b!是啥@#$%cd^&*e()f_+g~！hi@#j￥k%……&*（）l——m+[]{n}，？；‘\\|o;'p,.。/q:<r>?5{}s【】t、|uv；w：’x《，y》。？z/";
+        String s1 = "0~a`b!是啥@#$%cd^&*e()f_+g~！hi@#j￥k%……&*（）l——m+[]{n}，？；‘\\|o;'p,.。/q:<r>?5{}s【】t、|uv；w：’x《，y》。？z/";
+        //s = s.replaceAll("[\\pP\\p{Punct}￥]", "");
+        s = s.replaceAll("[\\pP\\p{Punct}￥]", "");
+        s1 = s1.replaceAll("[^a-z0-9A-Z_]", "");
+        System.out.println(s);
+        System.err.println(s1);
+
+        BigDecimal a1 = new BigDecimal("0.0");
+        BigDecimal a2 = new BigDecimal("10.0");
+        BigDecimal a3 = new BigDecimal("100.0");
+        BigDecimal a4 = new BigDecimal("1000.0");
+        BigDecimal a5 = new BigDecimal("10000.0");
+
+        List<BigDecimal> list = new ArrayList<>();
+        list.add(a1);
+        list.add(a2);
+        list.add(a3);
+        list.add(a4);
+        list.add(a5);
+
+        List<BigDecimal> l1 = new ArrayList<BigDecimal>(list);
+        Collections.sort(l1,new Comparator<BigDecimal>(){
+            //降序排序
+            @Override
+            public int compare(BigDecimal o1, BigDecimal o2) {
+                return o1.compareTo(o2);
+            }
+        });
+
+        for(BigDecimal d :l1){
+            System.out.println(d);
+        }
     }
 }

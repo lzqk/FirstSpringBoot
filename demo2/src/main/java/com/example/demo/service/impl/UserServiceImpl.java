@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
      * pageSize 每页显示的数据条数
      * */
     @Override
-    public PageInfo<User> findAllUser(int pageNum, int pageSize, UserExample userExample) {
+    public PageInfo<User> findAllUser(int pageNum, int pageSize, User userExample) {
         //将参数传给这个方法就可以实现物理分页了，非常简单。
         PageHelper.startPage(pageNum, pageSize);
         List<User> userDomains = userMapper.selectByExample(userExample);
@@ -56,6 +56,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryByMap(Map map) {
         return userMapper.queryByMap(map);
+    }
+
+    @Override
+    public int updateTest(User record){
+        return userMapper.updateTest(record);
+    }
+
+    @Override
+    public int batchInsert(List list) {
+        return userMapper.batchInsert(list);
+    }
+
+    @Override
+    public int testCount(String tableName, String filed, String value) {
+        return userMapper.testCount(tableName,filed,value);
+    }
+
+    @Override
+    public int testSum(String sumFiled,String tableName, String filed, String value) {
+        return userMapper.testSum(sumFiled,tableName,filed,value);
     }
 
 }

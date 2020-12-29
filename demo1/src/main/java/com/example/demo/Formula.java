@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Formula {
     private String cnName;//中文名称
     private String enName;//英文名称
@@ -36,6 +39,12 @@ public class Formula {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public static void main(String[] args) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        String threeYearsAgo =sdf.format(new Date());
+        System.out.println(Integer.valueOf(threeYearsAgo) -1);
     }
 
 }

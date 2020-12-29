@@ -1,10 +1,11 @@
 package com.example.demo;
 
-import org.apache.commons.jexl2.Expression;
-import org.apache.commons.jexl2.JexlContext;
-import org.apache.commons.jexl2.JexlEngine;
-import org.apache.commons.jexl2.MapContext;
 
+
+import org.apache.commons.jexl3.*;
+
+import javax.el.Expression;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,14 +61,17 @@ public class ParamFormula {
         Object o = e.evaluate(jc);
         System.out.println("最终结果:" + o);
     }*/
-    private void calc(String formula) {
+    /*private void calc(String formula) {
+        JexlEngine engine = new JexlEngine();//创建表达式引擎对象
+        JexlContext context = new MapContext();//创建Context设值对象
         Expression e = new JexlEngine().createExpression(formula);
         JexlContext jc = new MapContext();
         jc.set("paramFormula", ParamFormula.class);
-
+        jc.set("Math", Math.class);
+        jc.set("BigDecimal", BigDecimal.class);
         Object o = e.evaluate(jc);
         System.out.println("最终结果:" + o);
-    }
+    }*/
 
     /*private String parseFormula(String formula, Map<String, String> params) {
         for (String k : params.keySet()) {
@@ -98,7 +102,12 @@ public class ParamFormula {
         return formula;
     }*/
 
-    //区间函数
+    /**
+     * 区间函数
+     * @param itvId
+     * @param projId
+     * @return
+     */
     public static Object interval(long itvId, long projId) {
         //取指标的值
         Object v = getProjValue(projId);
@@ -120,12 +129,25 @@ public class ParamFormula {
     }
 
     public static void main(String[] args) {
-        ParamFormula pf = new ParamFormula();
-        //pf.jixiao();
-        //pf.price();
-        //pf.hujiaoliang();
-        String ss = "if(10>2){return 1);}else{return 9;}+if(10<2){return 2);}else{return 9;}";
-        pf.calc(ss);
+        JexlEngine engine = new JexlBuilder().create();//创建表达式引擎对象
+        String ss = "if(10<2){return -1;}else if(10 =2){return 0;}else{return 1;}";
+
+        JexlContext jc = new MapContext();
+        //jc.set("a",new BigDecimal("100.0000000000"));
+        //jc.set("b",new BigDecimal("200.0000000000"));
+        //jc.set("paramFormula", ParamFormula.class);
+        jc.set("Math", Math.class);
+        jc.set("BigDecimal", BigDecimal.class);
+        JexlExpression create = engine.createExpression(ss);
+        Object o = create.evaluate(jc);
+        System.out.println("最终结果:" + o);
+        /*double c= 1196.52055425;
+        double d= 1290.3316800000002;
+        System.out.println(c+d);
+        System.out.println(c);
+        System.out.println(d);*/
+
+
     }
 
 }
